@@ -40,42 +40,20 @@ if (playerInput == "1") {
 
 printMessage("Twój ruch to: " + playerMove);
 
-//      JEŚLI WYGRA UZYTKONIK
-
-if (computerMove == "kamień" && playerMove == "papier") {
+if (
+	(computerMove == "kamień" && playerMove == "papier") ||
+	(computerMove == "papier" && playerMove == "nożyce") ||
+	(computerMove == "nożyce" && playerMove == "kamień")
+) {
 	printMessage("Ty wygrywasz!");
-} else if (computerMove == "papier" && playerMove == "nożyce") {
-	printMessage("Ty wygrywasz!");
-} else if (computerMove == "nożyce" && playerMove == "kamień") {
-	printMessage("Ty wygrywasz!");
-}
-
-//   JEŚLI WYGRA KOMPUTER
-
-if (computerMove == "papier" && playerMove == "kamień") {
+} else if (
+	(computerMove == "papier" && playerMove == "kamień") ||
+	(computerMove == "nożyce" && playerMove == "papier") ||
+	(computerMove == "kamień" && playerMove == "nożyce")
+) {
 	printMessage("Wygrał komputer!");
-} else if (computerMove == "nożyce" && playerMove == "papier") {
-	printMessage("Wygrał komputer!");
-} else if (computerMove == "kamień" && playerMove == "nożyce") {
-	printMessage("Wygrał komputer!");
-}
-
-//      JESLI WYBÓR  GRACZY BEDZIE RÓWNY
-
-if (computerMove == "papier" && playerMove == "papier") {
-	printMessage("Mamy Remi! Zagraj ponowanie");
-} else if (computerMove == "nożyce" && playerMove == "nożyce") {
-	printMessage("Mamy Remi! Zagraj ponowanie");
-} else if (computerMove == "kamień" && playerMove == "kamień") {
-	printMessage("Mamy Remi! Zagraj ponowanie");
-}
-
-//     JESLI GRACZ WYBIERZE NIEZNANY RUCH
-
-if (computerMove == "nożyce" && playerMove == "nieznany ruch") {
+} else if (playerMove == "nieznany ruch") {
 	printMessage("nie znam takiego ruchu, spróbuj jeszcze raz!");
-} else if (computerMove == "kamień" && playerMove == "nieznany ruch") {
-	printMessage("nie znam takiego ruchu, spróbuj jeszcze raz!");
-} else if (computerMove == "papier" && playerMove == "nieznany ruch") {
-	printMessage("nie znam takiego ruchu, spróbuj jeszcze raz!");
+} else if (computerMove == playerMove) {
+	printMessage("Mamy Remis! Zagraj ponowanie");
 }
