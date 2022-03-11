@@ -8,7 +8,6 @@ function playGame(playerInput) {
 		} else if (argMoveId == 3) {
 			return "nożyce";
 		}
-
 		printMessage("Nie znam ruchu o id " + argMoveId + ".");
 		return "nieznany ruch";
 	}
@@ -28,15 +27,13 @@ function playGame(playerInput) {
 			(argComputerMove == "kamień" && argPlayerMove == "nożyce")
 		) {
 			printMessage("Wygrał komputer!");
-			/*} else if (playerMove == "nieznany ruch") {
-			printMessage("nie znam takiego ruchu, spróbuj jeszcze raz!");*/
 		} else if (argComputerMove == argPlayerMove) {
 			printMessage("Mamy Remis! Zagraj ponowanie");
 		}
 	}
 
 	function printMessage(msg) {
-		let div = document.createElement("div");
+		const div = document.createElement("div"); // change let
 		div.innerHTML = msg;
 		document.getElementById("messages").appendChild(div);
 	}
@@ -45,74 +42,36 @@ function playGame(playerInput) {
 		document.getElementById("messages").innerHTML = "";
 	}
 
-	let randomNumber = Math.floor(Math.random() * 3 + 1);
-
+	const randomNumber = Math.floor(Math.random() * 3 + 1); // change let
 	console.log("Wylosowana liczba to: " + randomNumber);
 
-	let computerMove = getMoveName(randomNumber);
-
-	/*if (randomNumber == 1) {
-		computerMove = "kamień";
-	} else if (randomNumber == 2) {
-		computerMove = "papier";
-	} else if (randomNumber == 3) {
-		computerMove = "nożyce";
-	}*/
+	const computerMove = getMoveName(randomNumber); // change let
 
 	printMessage("Mój ruch to: " + computerMove);
 
-	//		nieaktywen z powudu funkci playGame			let playerInput = prompt("Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.");
-
 	console.log("Gracz wpisał: " + playerInput);
 
-	let playerMove = getMoveName(playerInput);
-
-	/*if (playerInput == "1") {
-		playerMove = "kamień";
-	} else if (playerInput == "2") {
-		playerMove = "papier";
-	} else if (playerInput == "3") {
-		playerMove = "nożyce";
-	}*/
+	const playerMove = getMoveName(playerInput); // change let
 
 	printMessage("Twój ruch to: " + playerMove);
 
-	/*if (
-		(computerMove == "kamień" && playerMove == "papier") ||
-		(computerMove == "papier" && playerMove == "nożyce") ||
-		(computerMove == "nożyce" && playerMove == "kamień")
-	) {
-		printMessage("Ty wygrywasz!");
-	} else if (
-		(computerMove == "papier" && playerMove == "kamień") ||
-		(computerMove == "nożyce" && playerMove == "papier") ||
-		(computerMove == "kamień" && playerMove == "nożyce")
-	) {
-		printMessage("Wygrał komputer!");
-		} else if (playerMove == "nieznany ruch") {			//powiela sie kom z getNameMove
-		printMessage("nie znam takiego ruchu, spróbuj jeszcze raz!");
-	} else if (computerMove == playerMove) {
-		printMessage("Mamy Remis! Zagraj ponowanie");
-	} */
-
 	displayResult(computerMove, playerMove);
 }
-//playGame(3);			wywołanie funkcji playGame
 
 function rockClicked() {
 	playGame("Wybrałes Kamień");
 }
-let rockButton = document.getElementById("play-rock");
+const rockButton = document.getElementById("play-rock"); // change let
 rockButton.addEventListener("click", rockClicked);
 
 function paperClicked() {
 	playGame("Wybrałes papier");
 }
-let paperButton = document.getElementById("play-paper");
+const paperButton = document.getElementById("play-paper"); // change let
 paperButton.addEventListener("click", paperClicked);
 
 function scissorsClicked() {
 	playGame("Wybrałeś nozyczki");
 }
-let scissorsButton = document.getElementById("play-scissors");
+const scissorsButton = document.getElementById("play-scissors"); // change let
 scissorsButton.addEventListener("click", scissorsClicked);
