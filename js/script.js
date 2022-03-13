@@ -36,7 +36,6 @@ function playGame(playerInput) {
 	const clearMessages = function () {
 		document.getElementById("messages").innerHTML = "";
 	};
-
 	clearMessages();
 
 	const randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -45,7 +44,6 @@ function playGame(playerInput) {
 	const computerMove = getMoveName(randomNumber);
 
 	printMessage("Mój ruch to: " + computerMove);
-
 	console.log("Gracz wpisał: " + playerInput);
 
 	const playerMove = getMoveName(playerInput);
